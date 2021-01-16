@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+    </style>
+    <script>
+        function dodajWiersz(){
+          let zmiennainput = document.createElement("input");
+          let typData = document.createAttribute("type");
+          typData.value = "date";
+          zmiennainput.attributes.setNamedItem(typData);
+          document.getElementById("nasz-formularz").appendChild(zmiennainput);
+        }
+    </script>
+</head>
+<body>
+<a href="index.html">spis treści</a>
+<h1>
+    tworzenie tabelki
+</h1>
+
+
+<form action="" id="nasz-formularz">
+<table style="border: black 1px solid">
+    <tr>
+        <td>
+            <button type="button" onclick="dodajWiersz()">
+                dodaj dzień
+            </button>
+        </td>
+        <td>
+            Czapiewscy
+        </td>
+        <td>
+            Cysewscy
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="date">
+        </td>
+        <td>
+            <input type="number" min="0">
+        </td>
+        <td>
+            <input type="number" min="0">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="date">
+        </td>
+        <td>
+            <input type="number" min="0">
+        </td>
+        <td>
+            <input type="number" min="0">
+        </td>
+    </tr>
+</table>
+</form>
+
+</body>
+</html>
