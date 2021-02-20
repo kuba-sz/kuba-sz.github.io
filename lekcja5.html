@@ -1,0 +1,155 @@
+<!doctype html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+    </style>
+    <script>
+
+        document.addEventListener('readystatechange', function () {
+
+            let elementy = document.getElementsByTagName("input");
+
+            console.log(elementy);
+
+            for (let input of elementy) {
+                input.addEventListener('change', zapiszDane);
+            }
+
+            //document.getElementsByTagName("input").forEach(function(element){
+            // element.addEventListener('change', zapiszDane);
+            //});
+        });
+
+        function dodajWiersz() {
+            //  let zmiennainput = document.createElement("input");
+            //  let typData = document.createAttribute("type");
+            // typData.value = "date";
+            // zmiennainput.attributes.setNamedItem(typData);
+            // document.getElementById("nasz-formularz").appendChild(zmiennainput);
+
+            let zmiennatr;
+            let pierwszakomorkatd;
+            let pierwszyinput;
+            let komorkazlitrami;
+            let komorkazlitrami2;
+            let inputzlitrami;
+            let inputzlitrami2;
+            let atrybutdata;
+            let atrybutliczba;
+            let atrybutliczba2;
+            let atrybutminimum;
+            let atrybutminimum2;
+
+            let atrybutKalendarzWiersz;
+            let atrybutKalendarzId;
+            let atrybutInput1Wiersz;
+            let atrybutInput1Id;
+            let atrybutInput2Wiersz;
+            let atrybutInput2Id;
+
+            zmiennatr = document.createElement("tr");
+            pierwszakomorkatd = document.createElement("td");
+            komorkazlitrami = document.createElement("td");
+            komorkazlitrami2 = document.createElement("td");
+            pierwszyinput = document.createElement("input");
+            inputzlitrami = document.createElement("input");
+            inputzlitrami2 = document.createElement("input");
+            atrybutdata = document.createAttribute("type");
+            atrybutdata.value = "date";
+            atrybutliczba = document.createAttribute("type");
+            atrybutliczba.value = "number";
+            atrybutliczba2 = document.createAttribute("type");
+            atrybutliczba2.value = "number";
+            atrybutminimum = document.createAttribute("min");
+            atrybutminimum.value = "0";
+            atrybutminimum2 = document.createAttribute("min");
+            atrybutminimum2.value = "0";
+
+            let wszystkieWierszeZDanymi = document.querySelectorAll(".wierszZDanymi");
+            let numerWiersza = 0;
+            for (let wiersz of wszystkieWierszeZDanymi){
+                numerWiersza = numerWiersza + 1;
+            }
+
+            let numerNowegoWiersza = parseInt(numerWiersza) + 1;
+
+
+            pierwszyinput.dataset.wiersz = numerNowegoWiersza;
+            pierwszyinput.id = "data-" + numerNowegoWiersza;
+
+
+
+            inputzlitrami.dataset.wiersz = numerNowegoWiersza;
+            inputzlitrami.id = "czapiewscy-" + numerNowegoWiersza;
+
+
+            inputzlitrami2.dataset.wiersz = numerNowegoWiersza;
+            inputzlitrami2.id = "cysewscy-" + numerNowegoWiersza;
+
+            pierwszyinput.attributes.setNamedItem(atrybutdata);
+            inputzlitrami.attributes.setNamedItem(atrybutliczba);
+            inputzlitrami2.attributes.setNamedItem(atrybutliczba2);
+            inputzlitrami.attributes.setNamedItem(atrybutminimum);
+            inputzlitrami2.attributes.setNamedItem(atrybutminimum2);
+            pierwszakomorkatd.appendChild(pierwszyinput);
+            komorkazlitrami.appendChild(inputzlitrami);
+            komorkazlitrami2.appendChild(inputzlitrami2);
+            zmiennatr.appendChild(pierwszakomorkatd);
+            zmiennatr.appendChild(komorkazlitrami);
+            zmiennatr.appendChild(komorkazlitrami2);
+            zmiennatr.className = "wierszZDanymi";
+
+            let tabelka;
+            tabelka = document.getElementById("nasza-tabelka");
+            let wierszzprzyciskem = document.getElementById("wierszzprzyciskem");
+            wierszzprzyciskem.after(zmiennatr);
+
+            let noweInputy = zmiennatr.getElementsByTagName('input');
+            for (let nowyInput of noweInputy) {
+                nowyInput.addEventListener('change', zapiszDane);
+            }
+        }
+
+        function zapiszDane(e) {
+
+            let numerWiersza = e.target.dataset.wiersz;
+            let nowaData = document.getElementById("data-" + numerWiersza).value;
+            let czapiewscyLitry = document.getElementById("czapiewscy-" + numerWiersza).value;
+            let cysewscyLitry = document.getElementById("cysewscy-" + numerWiersza).value;
+
+            let dane = {"czapiewscy": czapiewscyLitry, "cysewscy": cysewscyLitry};
+
+            localStorage.setItem(nowaData, JSON.stringify(dane));
+        }
+    </script>
+</head>
+<body>
+<a href="index.html">spis treści</a>
+<h1>
+    dodawanie wierszy po kliknięciu
+</h1>
+
+
+<form action="" id="nasz-formularz">
+    <table id="nasza-tabelka" style="border: black 1px solid">
+        <tr id="wierszzprzyciskem">
+            <td>
+                <button onclick="dodajWiersz()" type="button">
+                    dodaj dzień
+                </button>
+            </td>
+            <td>
+                Czapiewscy
+            </td>
+            <td>
+                Cysewscy
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+</body>
+</html>
