@@ -1,63 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html>
-<head>
-    <meta charset="UTF-8">
+    <head>
+        <meta charset="UTF-8" />
 
-	<link rel="stylesheet" href="style11.css">
-	<script src="scrypt11.js"></script>
-</head>
-<body>
-<a href="index.html">spis treści</a>
-<div>
-	<button onclick="poprzedniMiesiac()" type="button" class="strzalka">
-		<h2>
-			<
-		</h2>
-	</button>
-	<h2 class="miesiac">
-		luty
-	</h2>
-	<button onclick="nastepnyMiesiac()" type="button" class="strzalka">
-		<h2>
-			>
-		</h2>
-	</button>
-	<button class="doPrawej" onclick="przelaczUstawienia()">
-		<h2>
-			Ustawienia
-		</h2>	
-	</button>
-</div>
-<div id="blokUstawienia">
-	<h3>
-		ustawienia
-		<button class="doPrawej" onclick="dodajLinieZNazwiskem('nastepny',``)">
-			dodaj nazwisko
-		</button>
-	</h3>
-	<div id="miejsceNaNazwiska">
-		
-	</div>
-</div>
-<form action="" id="nasz-formularz">
-    <table id="nasza-tabelka" style="border: black 1px solid">
-        <tr id="wierszzprzyciskem">
-            <td>
-                <button onclick="dodajWiersz()" type="button">
-                    dodaj dzień
+        <link rel="stylesheet" href="style11.css" />
+        <script src="scrypt11.js"></script>
+    </head>
+    <body>
+        <a href="index.html">spis treści</a>
+        <div>
+            <button onclick="poprzedniMiesiac()" type="button" class="strzalka">
+                <h2><</h2>
+            </button>
+            <h2 class="miesiac">luty</h2>
+            <button onclick="nastepnyMiesiac()" type="button" class="strzalka">
+                <h2>></h2>
+            </button>
+            <button class="doPrawej" onclick="przelaczUstawienia()">
+                <h2>Ustawienia</h2>
+            </button>
+        </div>
+        <div id="blokUstawienia">
+            <h3>
+                ustawienia
+                <button
+                    class="doPrawej"
+                    onclick="dodajLinieZNazwiskem('nastepny',``)"
+                >
+                    dodaj nazwisko
                 </button>
-            </td>
-            <td>
-                Czapiewscy
-            </td>
-            <td>
-                Cysewscy
-            </td>
-        </tr>
-
-    </table>
-</form>
-
-</body>
+            </h3>
+            <div id="miejsceNaNazwiska"></div>
+        </div>
+        <form action="" id="nasz-formularz">
+            <table id="nasza-tabelka" style="border: black 1px solid">
+                <tr id="wierszzprzyciskem">
+                    <td>
+                        <button onclick="dodajWiersz()" type="button">
+                            dodaj dzień
+                        </button>
+                    </td>
+                    <td>Czapiewscy</td>
+                    <td>Cysewscy</td>
+                </tr>
+            </table>
+        </form>
+    </body>
 </html>
